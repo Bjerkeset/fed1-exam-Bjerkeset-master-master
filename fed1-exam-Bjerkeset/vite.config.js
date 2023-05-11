@@ -14,7 +14,7 @@ export default defineConfig({
         main: resolve(__dirname, "index.html"),
         // ADD YOUR PAGES HERE
         contact: resolve(__dirname, "./pages/contact.html"),
-        contact: resolve(__dirname, "./pages/contact.about.html"),
+        contact: resolve(__dirname, "./pages/about.html"),
         blog: resolve(__dirname, "./pages/blogs.html"),
         blogDetail: resolve(__dirname, "./pages/blog-detail.html"),
       },
