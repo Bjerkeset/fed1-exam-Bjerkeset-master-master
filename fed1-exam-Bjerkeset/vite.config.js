@@ -3,7 +3,7 @@ import { resolve } from "path";
 import { defineConfig } from "vite";
 
 export default defineConfig({
-  root: "./", // Specify the root directory for your project
+  root: "./fed1-exam-Bjerkeset-master-master/fed1-exam-Bjerkeset", // Specify the root directory for your project
   server: {
     host: "localhost", // Set the host for the development server
     port: 3000, // Set the port for the development server (optional)

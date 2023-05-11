@@ -22,7 +22,7 @@ function generateCardHTML(post) {
         <p>By: ${author}</p>
       </div>
       <div class="card__item card__item--btn">
-        <a> READ </a>
+        <a > READ </a>
       </div>
     </div>
   `;
@@ -31,7 +31,7 @@ function generateCardHTML(post) {
 function generateShowBlogsButtonHTML() {
   return `
     <div class="show-blogs__btn">
-      <a href=""><button class="button button--view-all-posts">View All Posts</button></a>
+      <a href="./pages/blogs.html"><button class="button button--view-all-posts">View All Posts</button></a>
     </div>
   `;
 }
