@@ -1,0 +1,29 @@
+{
+  "kind": "collectionType",
+  "collectionName": "blog_posts_homepages",
+  "info": {
+    "singularName": "blog-posts-homepage",
+    "pluralName": "blog-posts-homepages",
+    "displayName": "blog-posts-homepage"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string",
+      "unique": true,
+      "required": true
+    },
+    "description": {
+      "type": "text"
+    },
+    "author": {
+      "type": "string"
+    },
+    "readtime": {
+      "type": "integer"
+    }
+  }
+}
