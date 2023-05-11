@@ -13,6 +13,7 @@ const finalPrice = document.getElementById("final-price");
 const calculator = document.querySelector(".calculator");
 const calculatorH2 = document.querySelector(".calculator__h2");
 const calculatorIntroText = document.querySelector(".calculator__intro-text");
+// const question = document.querySelector(".question");
 
 const radioButtonGroup1 = document.querySelectorAll('input[name="q1"]');
 const radioButtonGroup2 = document.querySelectorAll('input[name="q2"]');
@@ -47,11 +48,20 @@ const answerValues = {
     q8: 2000,
   },
 };
+// let currentSlideNumber = 0;
+
+// function logActiveSlideNumber() {
+//   console.log("Current slide number:", currentSlideNumber);
+//   const slideNumberElement = document.getElementById("slide-number");
+//   slideNumberElement.innerHTML = `Current slide number: ${currentSlideNumber}`;
+// }
 
 // Hide the current element and display the next one
 function showNextQuestion(current, next) {
   document.getElementById(current).classList.remove("active");
   document.getElementById(next).classList.add("active");
+  // currentSlideNumber++;
+  // logActiveSlideNumber;
 }
 
 // Display the first question when the "start" button is clicked

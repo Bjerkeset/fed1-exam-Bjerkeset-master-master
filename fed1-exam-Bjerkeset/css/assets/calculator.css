@@ -1,6 +1,6 @@
 .calculator__section {
   border-top: 1px solid #3b3a3b;
-  height: 100vh;
+  min-height: 100vh;
 }
 
 .calculator__container {
@@ -10,6 +10,7 @@
   align-items: center;
   min-height: 60vh;
   justify-content: center;
+  padding-bottom: 4rem;
 }
 
 .calculator__wrapper {
@@ -155,6 +156,7 @@
   /* transition: all 1s ease-in-out; */
 }
 .result h2 {
+  padding: 0 1rem;
   padding-bottom: 2rem;
   font-size: 2rem;
 }

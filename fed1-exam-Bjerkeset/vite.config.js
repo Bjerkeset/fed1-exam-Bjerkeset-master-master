@@ -3,9 +3,9 @@ import { resolve } from "path";
 import { defineConfig } from "vite";
 
 export default defineConfig({
-  root: './', // Specify the root directory for your project
+  root: "./", // Specify the root directory for your project
   server: {
-    host: 'localhost', // Set the host for the development server
+    host: "localhost", // Set the host for the development server
     port: 3000, // Set the port for the development server (optional)
   },
   build: {
@@ -13,9 +13,10 @@ export default defineConfig({
       input: {
         main: resolve(__dirname, "index.html"),
         // ADD YOUR PAGES HERE
-        // contact: resolve(__dirname, "contact.html"),
-        // blog: resolve(__dirname, "blogs.html"),
-        // blogDetail: resolve(__dirname, "blog-detail.html"),
+        contact: resolve(__dirname, "./pages/contact.html"),
+        contact: resolve(__dirname, "./pages/contact.about.html"),
+        blog: resolve(__dirname, "./pages/blogs.html"),
+        blogDetail: resolve(__dirname, "./pages/blog-detail.html"),
       },
     },
   },
