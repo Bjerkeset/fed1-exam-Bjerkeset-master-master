@@ -1,22 +1,20 @@
-/* eslint-disable no-undef */
-import { resolve } from "path";
 import { defineConfig } from "vite";
+import path from "path";
 
 export default defineConfig({
-  root: "./fed1-exam-Bjerkeset-master-master/fed1-exam-Bjerkeset", // Specify the root directory for your project
+  root: "./fed1-exam-Bjerkeset-master-master/fed1-exam-Bjerkeset",
   server: {
-    host: "localhost", // Set the host for the development server
-    port: 3000, // Set the port for the development server (optional)
+    host: "localhost",
+    port: 3000,
   },
   build: {
     rollupOptions: {
       input: {
-        main: resolve(__dirname, "index.html"),
-        // ADD YOUR PAGES HERE
-        contact: resolve(__dirname, "./pages/contact.html"),
-        about: resolve(__dirname, "./pages/about.html"),
-        blog: resolve(__dirname, "./pages/blogs.html"),
-        blogDetail: resolve(__dirname, "./pages/blog-detail.html"),
+        main: path.resolve("index.html"),
+        contact: path.resolve("pages/contact.html"),
+        about: path.resolve("pages/about.html"),
+        blog: path.resolve("pages/blogs.html"),
+        blogDetail: path.resolve("pages/blog-detail.html"),
       },
     },
   },
