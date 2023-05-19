@@ -3,8 +3,8 @@
 
 /* optional imports that use the props */
 @import "open-props/normalize";
-@import "animate.css";
 
+@import "css/animate.css";
 @import "css/variables.css";
 @import "css/reset.css";
 @import "css/utilities.css";

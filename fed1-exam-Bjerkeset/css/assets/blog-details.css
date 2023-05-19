@@ -1,0 +1,61 @@
+.blog__details {
+  background-color: var(--clr-background-blog);
+  padding: 5vw;
+  display: flex;
+  flex-direction: column;
+}
+
+.card__details {
+  line-height: 2rem;
+}
+
+.card__details--title {
+  background-color: lavender;
+  margin: auto;
+}
+
+.card__details--author {
+  background-color: lavender;
+  margin: auto;
+}
+
+.card__details--date {
+  background-color: lavender;
+  margin: auto;
+}
+
+.card__details--excerpt {
+  background-color: azure;
+}
+
+.card__details--body {
+}
+
+.card__details--btn {
+}
+
+/* ------Comment Section------ */
+
+#comment-form {
+  display: flex;
+  flex-direction: column;
+  background-color: beige;
+  margin: auto;
+  padding: 1rem;
+}
+
+.name__wrapper {
+  display: flex;
+  flex-direction: column;
+}
+.name__wrapper label {
+  margin: auto;
+}
+
+.comment__wrapper {
+  display: flex;
+  flex-direction: column;
+}
+.comment__wrapper label {
+  margin: auto;
+}

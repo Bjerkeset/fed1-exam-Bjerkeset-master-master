@@ -13,7 +13,8 @@
     <meta name="author" content="B.Bjerkeset" />
     <link rel="stylesheet" href="/style.css" />
     <link rel="stylesheet" href="../css/assets/navbar.css" />
-    <script defer type="module" src="../js/app.js"></script>
+    <script defer type="module" src="../js/blogs.js"></script>
+    <!-- <script defer src="../../../backend/sanity.cli.js"></script> -->
 
     <link
       rel="stylesheet"
@@ -27,15 +28,11 @@
   <body class="animate__animated animate__fadeIn">
     <header class="l-header">
       <nav class="navbar__container">
+        <a href="../index.html">
+          <div class="branding__container"></div>
+        </a>
         <div class="navbar__list">
           <ul class="navbar__list-ul">
-            <li>
-              <img
-                class="navbar__branding"
-                src="../assets/images/logo-resized-full-size.png"
-                alt="logo"
-              />
-            </li>
             <li><a class="navbar__a" href="../index.html">HOME</a></li>
             <li><a class="navbar__a" href="./pages/blogs.html">BLOG</a></li>
             <li><a class="navbar__a" href="./pages/about.html">ABOUT</a></li>
@@ -54,14 +51,35 @@
 
     <main class="l-main">
       <section role="list" class="list__section">
-        <div class="services__head">
-          <div class="services__head-text services__head__text--h4">
-            <h4>Blog</h4>
+        <div class="section__head">
+          <div class="section__head-text section__head__text--h4">
+            <h4>Blog Posts</h4>
           </div>
-          <div class="services__head-text services__head__text--h2">
-            <h2>See our jurney</h2>
+          <div class="section__head-text section__head__text--h2">
+            <h1>See our jurney</h1>
           </div>
         </div>
+        <div class="control-panel">
+          <div class="search__container">
+            <input type="text" id="search" placeholder="Search blog posts..." />
+          </div>
+          <div class="filter__container">
+            <select id="filter">
+              <option value="">Filter by category</option>
+              <option value="tech">Tech</option>
+              <option value="lifestyle">Lifestyle</option>
+              <option value="business">Business</option>
+              <!-- Add more categories as needed -->
+            </select>
+            <select id="sort">
+              <option value="">Sort by</option>
+              <option value="date">Date</option>
+              <option value="title">Title</option>
+              <!-- Add more sorting options as needed -->
+            </select>
+          </div>
+        </div>
+
         <div id="js-list-container"></div>
         <div id="js-loading-indicator" class="loading-indicator"></div>
         <div id="js-error-container"></div>

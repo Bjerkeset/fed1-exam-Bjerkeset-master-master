@@ -1,28 +1,30 @@
+import { applyMouseEffect } from "./assets/mouseeffect";
 import { toggleHamburgerMenu } from "./assets/navbar";
 
+applyMouseEffect();
 toggleHamburgerMenu();
 
 const listContainer = document.querySelector("#js-list-container");
 
-function generateCardHTML(post) {
-  const { name, author, description, readtime } = post.attributes;
+export function generateCardHTML(post) {
+  const { title, author, date, excerpt } = post;
 
   return `
     <div class="blog__card">
-      <div class="card__item card__item--readtime">
-        <p>Read time: ${readtime} min</p>
-      </div>
       <div class="card__item card__item--title">
-        <h4>${name}</h4>
-      </div>
-      <div class="card__item card__item--description">
-        <p>${description}</p>
+        <h4>${title}</h4>
       </div>
       <div class="card__item card__item--author">
         <p>By: ${author}</p>
       </div>
+      <div class="card__item card__item--date">
+        <p>Date: ${new Date(date).toLocaleDateString()}</p>
+      </div>
+      <div class="card__item card__item--excerpt">
+        <p>${excerpt}</p>
+      </div>
       <div class="card__item card__item--btn">
-        <a > READ </a>
+        <a> READ </a>
       </div>
     </div>
   `;
@@ -33,13 +35,16 @@ function generateShowBlogsButtonHTML() {
     <div class="show-blogs__btn">
       <a href="./pages/blogs.html"><button class="button button--view-all-posts">View All Posts</button></a>
     </div>
-  `;
+    `;
 }
 
 async function fetchBlogPosts() {
+  const loadingIndicator = document.getElementById("js-loading-indicator");
+  loadingIndicator.style.display = "block";
+
   try {
     const response = await fetch(
-      "https://strapi-gwbt8.ondigitalocean.app/api/blog-posts-homepages"
+      'https://npd35udx.api.sanity.io/v1/data/query/production?query=*[_type == "blogPost"]'
     );
 
     if (!response.ok) {
@@ -47,19 +52,17 @@ async function fetchBlogPosts() {
     }
 
     const responseData = await response.json();
-    const data = responseData.data;
+    const data = responseData.result;
     const container = listContainer;
 
-    // Create a card container
     const cardContainer = document.createElement("div");
     cardContainer.className = "card__container";
     container.appendChild(cardContainer);
 
-    for (let i = 0; i < data.length; i++) {
+    for (let i = 0; i < 5; i++) {
       const post = data[i];
       const cardHTML = generateCardHTML(post);
 
-      // Create a blog card and append it to the card container
       const blogCardWrapper = document.createElement("div");
       blogCardWrapper.className = "blog__card";
       blogCardWrapper.innerHTML = cardHTML;
@@ -74,6 +77,8 @@ async function fetchBlogPosts() {
     applyMouseEffect();
   } catch (error) {
     console.error("Error fetching blog posts:", error);
+  } finally {
+    loadingIndicator.style.display = "none";
   }
 }
 
@@ -99,37 +104,37 @@ for (let i = 0; i < cards.length; i++) {
 }
 
 // Mouse effect
-const handleOnMouseMove = (e) => {
-  const { currentTarget: target } = e;
+// const handleOnMouseMove = (e) => {
+//   const { currentTarget: target } = e;
 
-  const rect = target.getBoundingClientRect(),
-    x = e.clientX - rect.left,
-    y = e.clientY - rect.top;
+//   const rect = target.getBoundingClientRect(),
+//     x = e.clientX - rect.left,
+//     y = e.clientY - rect.top;
 
-  target.style.setProperty("--mouse-x", `${x}px`);
-  target.style.setProperty("--mouse-y", `${y}px`);
-};
+//   target.style.setProperty("--mouse-x", `${x}px`);
+//   target.style.setProperty("--mouse-y", `${y}px`);
+// };
 
-for (const card of document.querySelectorAll(".blog__card")) {
-  card.onmousemove = (e) => handleOnMouseMove(e);
-}
+// for (const card of document.querySelectorAll(".blog__card")) {
+//   card.onmousemove = (e) => handleOnMouseMove(e);
+// }
 
-// Mouse effect logic
-function applyMouseEffect() {
-  const handleOnMouseMove = (e) => {
-    const { currentTarget: target } = e;
+// // Mouse effect logic
+// function applyMouseEffect() {
+//   const handleOnMouseMove = (e) => {
+//     const { currentTarget: target } = e;
 
-    const rect = target.getBoundingClientRect(),
-      x = e.clientX - rect.left,
-      y = e.clientY - rect.top;
+//     const rect = target.getBoundingClientRect(),
+//       x = e.clientX - rect.left,
+//       y = e.clientY - rect.top;
 
-    target.style.setProperty("--mouse-x", `${x}px`);
-    target.style.setProperty("--mouse-y", `${y}px`);
-  };
-  for (const card of document.querySelectorAll(".blog__card")) {
-    card.onmousemove = (e) => handleOnMouseMove(e);
-  }
-}
+//     target.style.setProperty("--mouse-x", `${x}px`);
+//     target.style.setProperty("--mouse-y", `${y}px`);
+//   };
+//   for (const card of document.querySelectorAll(".blog__card")) {
+//     card.onmousemove = (e) => handleOnMouseMove(e);
+//   }
+// }
 
 /*
 ============================================

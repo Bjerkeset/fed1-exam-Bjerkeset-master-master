@@ -24,6 +24,7 @@
   );
   --clr-gradient-btn-main: linear-gradient(to right, #4285f4, #2c75ff);
   --clr-background-secondary: #111215;
+  --clr-details-main: rgba(242, 153, 74, 1);
   --clr-background-blog: #c4bdb0;
   --clr-background-card-main: #141518;
   --clr-p-text: #a4a7b1;
