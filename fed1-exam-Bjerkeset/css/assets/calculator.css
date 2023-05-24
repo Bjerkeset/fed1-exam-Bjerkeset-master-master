@@ -17,7 +17,9 @@
   display: flex;
   justify-content: center;
   position: relative;
-  width: 750px;
+  /* width: 750px; */
+  color: var(--clr-h4);
+  /* background-color: #1c1d22; */
   height: 500px;
   overflow: hidden;
 }
@@ -33,7 +35,8 @@
   background-image: url(../../assets/images/calculator-50-opacity.png);
   background-position: center;
   background-size: cover;
-  width: 500px;
+  width: clamp(300px, 90vw, 500px);
+
   height: 500px;
   transition: all 0.2s ease-in;
 }
@@ -54,7 +57,7 @@
 .calculator__intro-text p {
   color: #c3c1c3;
 }
-
+/* 
 .start__button button {
   border: 2px solid var(--clr-btn-main);
   background: transparent;
@@ -105,7 +108,7 @@
 
 .start__button button:hover::after {
   transform: scaleX(1);
-}
+} */
 
 .question {
   position: absolute;
@@ -125,7 +128,8 @@
 }
 .calculator.active,
 .question {
-  width: 750px;
+  width: clamp(300px, 90vw, 750px);
+  /* height: -100px; */
 }
 
 .calculator.active {
@@ -141,7 +145,8 @@
 }
 
 .question__h2 h2 {
-  font-size: 1.5rem;
+  font-size: clamp(1rem, 2vw, 1.3rem);
+  text-align: center;
 }
 .result {
   display: flex;
@@ -150,6 +155,11 @@
   background-color: rgba(0, 0, 0, 0.75);
   background-image: var(--clr-gradient-background-main);
   padding: 4rem;
+  /* height: 1000px; */
+  /* width: clamp(300px, 90vw, 750px); */
+  /* width: inherit; */
+  /* height: calc(inherit + 5rem); */
+  /* padding-top: 5rem; */
   border-radius: 10px;
   /* width: inherit; */
   /* height: inherit; */
@@ -172,16 +182,18 @@
   color: inherit;
   text-decoration: none;
 }
-
-a:visited {
+.result a:visited {
   color: inherit;
 }
-
 .question__radio {
   display: flex;
   justify-content: center;
   align-items: center;
-  /* background-color: #df66df; */
+}
+@media (max-width: 678px) {
+  .question__radio {
+    flex-direction: column;
+  }
 }
 
 .question__radio label {

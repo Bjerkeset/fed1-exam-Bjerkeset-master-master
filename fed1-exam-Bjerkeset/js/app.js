@@ -5,6 +5,7 @@ applyMouseEffect();
 toggleHamburgerMenu();
 
 const listContainer = document.querySelector("#js-list-container");
+const errorContainer = document.querySelector("#js-error-container");
 
 export function generateCardHTML(post) {
   const { title, author, date, excerpt } = post;
@@ -24,7 +25,7 @@ export function generateCardHTML(post) {
         <p>${excerpt}</p>
       </div>
       <div class="card__item card__item--btn">
-        <a> READ </a>
+        <a><span class="arrow right"></span></a>
       </div>
     </div>
   `;
@@ -67,6 +68,11 @@ async function fetchBlogPosts() {
       blogCardWrapper.className = "blog__card";
       blogCardWrapper.innerHTML = cardHTML;
       cardContainer.appendChild(blogCardWrapper);
+
+      //Add an on click event for blog cards.
+      blogCardWrapper.addEventListener("click", function () {
+        window.location.href = `../pages/blog-detail.html?slug=${post.slug.current}`;
+      });
     }
 
     const showBlogsButtonHTML = generateShowBlogsButtonHTML();
@@ -77,6 +83,8 @@ async function fetchBlogPosts() {
     applyMouseEffect();
   } catch (error) {
     console.error("Error fetching blog posts:", error);
+    errorContainer.style.display = "block";
+    errorContainer.innerHTML = error;
   } finally {
     loadingIndicator.style.display = "none";
   }

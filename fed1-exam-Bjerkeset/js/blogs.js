@@ -32,11 +32,14 @@ export function generateCardHTML(post) {
         <p>${excerpt}</p>
       </div>
       <div class="card__item card__item--btn">
-        <a> READ </a>
+      <a><span class="arrow right"></span></a>
       </div>
     </div>
   `;
 }
+
+const arrowBtn = document.getElementById("js-card-btn-arrow");
+console.log(arrowBtn);
 
 //Generates Show-more button
 function generateShowBlogsButtonHTML() {
@@ -51,7 +54,7 @@ let posts = [];
 
 //Fetches blog post from Sanity CMS
 async function fetchBlogPosts() {
-  //Displays loading indicator
+  // Displays loading indicator
   // loadingIndicator.style.display = "block";
   try {
     const response = await fetch(
@@ -97,7 +100,6 @@ function renderPosts(posts) {
 
     //Add an on click event for blog cards.
     blogCardWrapper.addEventListener("click", function () {
-      // window.location.href = `../pages/blog-detail.html?id=${post.slug.current}`;
       window.location.href = `../pages/blog-detail.html?slug=${post.slug.current}`;
     });
   }
